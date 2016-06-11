@@ -25,4 +25,8 @@ Puppet::Type.newtype(:mksgroup) do
     end
   end
 
+  autorequire(:mksgroup) do
+    [self[:groups]]
+  end
+
 end

@@ -18,4 +18,11 @@ Puppet::Type.newtype(:mksgroup) do
     end
   end
 
+  newproperty(:groups, :array_matching => :all) do
+    desc "List of groups belong to the group"
+    def insync?(is)
+      is.sort == should.sort
+    end
+  end
+
 end

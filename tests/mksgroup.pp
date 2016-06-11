@@ -1,4 +1,11 @@
 mksgroup { 'Netways':
   ensure  => present,
-  members => ['tredel','lbetz','tgelf'],
+  members => ['lbetz','tredel','tgelf'],
+} ->
+
+mksgroup { 'Administration':
+  ensure => present,
+  members => ['fsaadmin'],
+  #groups => ['Netways'],
+  groups => [],
 }

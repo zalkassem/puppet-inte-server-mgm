@@ -21,7 +21,7 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
       :failonfail => true,
       :uid => 'mks',
       :custom_environment => {
-        'PATH' => '/opt/integrity/client/bin:$PATH',
+        'PATH' => '/opt/integrity/client/bin:/bin:/usr/bin',
         'MKS_IC_INSTANCE_DIR' => '/opt/integrity/client'
       })
     return false unless output.exitstatus
@@ -40,7 +40,7 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
       :failonfail => true,
       :uid => 'mks',
       :custom_environment => {
-        'PATH' => '/opt/integrity/client/bin',
+        'PATH' => '/opt/integrity/client/bin:/bin:/usr/bin',
         'MKS_IC_INSTANCE_DIR' => '/opt/integrity/client'
       })
     return false unless output.exitstatus
@@ -145,7 +145,7 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
       :failonfail => true,
       :uid => 'mks',
       :custom_environment => {
-        'PATH' => '/opt/integrity/client/bin',
+        'PATH' => '/opt/integrity/client/bin:/bin:/usr/bin',
         'MKS_IC_INSTANCE_DIR' => '/opt/integrity/client'
       })
   end

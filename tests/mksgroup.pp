@@ -1,6 +1,6 @@
 mksgroup { 'Netways':
-  ensure  => present,
-  members => ['lbetz','tredel','tgelf'],
+    ensure    => 'present',
+      members => ['lbetz', 'tredel', 'tgelf'],
 }
 
 mksgroup { 'Administration':

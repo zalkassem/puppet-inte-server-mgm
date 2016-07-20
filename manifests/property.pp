@@ -9,7 +9,7 @@ define integrity::property(
   file_line { "${target}_${property}":
     path  => $target,
     line  => "${property}=${value}",
-    match => "^#*\s*${property}\s*=",
+    match => "^#*${property}\s*=",
   }
 
   #concat::fragment { "${target}_${property}":

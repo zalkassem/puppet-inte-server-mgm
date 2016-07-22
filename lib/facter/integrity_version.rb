@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Facter.add(:integrity_version) do
   setcode do
     server_version = 'unknown'

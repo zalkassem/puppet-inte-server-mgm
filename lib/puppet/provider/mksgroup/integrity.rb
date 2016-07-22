@@ -56,7 +56,7 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
 
     output.each_line { |attr|
       group_properties[:members] << attr.gsub(/^\s+(.*):User$/, '\1').chomp if /^\s+.*:User$/ =~ attr
-      group_properties[:groups] << attr.gsub(/^\s+(\.*):Group$/, '\1').chomp if /^\s+.*:Group$/ =~ attr
+      group_properties[:groups] << attr.gsub(/^\s+(.*):Group$/, '\1').chomp if /^\s+.*:Group$/ =~ attr
     }
 
     group_properties

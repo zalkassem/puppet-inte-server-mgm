@@ -1,3 +1,21 @@
+# == private Define Resource: integrity::property
+#
+# Full description of define integrity::property here.
+#
+# [*property*]
+#   Property to handle, default is the title of the define resource.
+#
+# [*value*]
+#   Value to assign to the property. Use absent as value to remove the property.
+#
+# [*target*]
+#   Target property file, has to be in /opt/integrity/server/<version>/config/properties.
+#
+#
+# === Authors
+#
+# Author Lennart Betz <lennart.betz@netways.de>
+#
 define integrity::property(
   $property = $title,
   $value,
@@ -26,7 +44,21 @@ define integrity::property(
 
 }
 
-
+# == private Define Resource: integrity::property::file
+#
+# Full description of define integrity::property::file here.
+#
+# [*file*]
+#   The target file, default to the title.
+#
+# [*properties*]
+#   Hash of properties for this target.
+#
+#
+# === Authors
+#
+# Author Lennart Betz <lennart.betz@netways.de>
+#
 define integrity::property::file(
   $file       = $title,
   $properties = {},

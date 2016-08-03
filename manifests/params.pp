@@ -1,3 +1,11 @@
+# == private class: integrity::params
+#
+# Full description of class integrity::params here.
+#
+# === Authors
+#
+# Author Lennart Betz <lennart.betz@netways.de>
+#
 class integrity::params {
 
   case $::osfamily {

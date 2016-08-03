@@ -1,3 +1,12 @@
+# == private Class: integrity::server::config
+#
+# Full description of class integrity::server::config here.
+#
+#
+# === Authors
+#
+# Author Lennart Betz <lennart.betz@netways.de>
+#
 class integrity::server::config inherits integrity::params {
 
   $properties = $integrity::server::properties

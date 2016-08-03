@@ -1,3 +1,12 @@
+# == private Class: integrity::server::service
+#
+# Full description of class integrity::server::service here.
+#
+#
+# === Authors
+#
+# Author Lennart Betz <lennart.betz@netways.de>
+#
 class integrity::server::service inherits integrity::params {
 
   $ensure = $integrity::server::ensure

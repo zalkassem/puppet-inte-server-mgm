@@ -7,10 +7,6 @@ Puppet::Type.newtype(:mksgroup) do
     desc "The name of the group."
   end
 
-  newproperty(:desc) do
-    desc "Description of the group"
-  end
-
   newproperty(:members, :array_matching => :all) do
     desc "List of users belong to the group"
     def insync?(is)
@@ -23,6 +19,12 @@ Puppet::Type.newtype(:mksgroup) do
     def insync?(is)
       is.sort == should.sort
     end
+  end
+
+  newparam(:port) do
+    desc "The server port to connect."
+    defaultto '7001'
+    newvalues(/^\d+$/)
   end
 
   autorequire(:mksgroup) do

@@ -49,7 +49,7 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
     group_properties = {
       :name => group,
       :ensure => :present,
-      :profider => self.name,
+      :provider => self.name,
       :members => [],
       :groups => [],
     }
@@ -58,7 +58,6 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
       group_properties[:members] << attr.gsub(/^\s+(.*):User$/, '\1').chomp if /^\s+.*:User$/ =~ attr
       group_properties[:groups] << attr.gsub(/^\s+(.*):Group$/, '\1').chomp if /^\s+.*:Group$/ =~ attr
     }
-
     group_properties
   end
 
@@ -110,7 +109,6 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
         '--port=7001',
         '--user=fsaadmin',
         '--password=200MKS9',
-        "--description=",
         "--name=#{resource[:name]}" ]
       cmd << "--members=#{members.join(',')}" unless members.empty?
     else
@@ -130,11 +128,11 @@ Puppet::Type.type(:mksgroup).provide(:integrity) do
         '--port=7001',
         '--user=fsaadmin',
         '--password=200MKS9',
-        '--description=',
         '--yes' ]
       cmd << "--addMembers=#{add.join(',')}" unless add.empty?
       cmd << "--removeMembers=#{remove.join(',')}" unless remove.empty?
       cmd << "#{resource[:name]}"
+puts "#{cmd}"
     end
 
     cmd

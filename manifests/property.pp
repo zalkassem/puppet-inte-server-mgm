@@ -8,11 +8,20 @@ define integrity::property(
 
   $confdir = "${integrity::params::basedir}/${integrity::server::_version}/config/properties"
 
-  file_line { "${target}_${property}":
-    path    => "${confdir}/${target}",
-    line    => "${property}=${value}",
-    replace => true,
-    match   => "^#*${property}\s*=",
+  if $value != 'absent' {
+    file_line { "${target}_${property}":
+      path    => "${confdir}/${target}",
+      line    => "${property}=${value}",
+      replace => true,
+      match   => "^#*${property}\s*=",
+    }
+  } else {
+    file_line { "${target}_${property}":
+      path    => "${confdir}/${target}",
+      line    => "#${property}=",
+      replace => true,
+      match   => "^${property}\s*=",
+    }
   }
 
 }

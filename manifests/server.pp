@@ -24,7 +24,7 @@ class integrity::server(
   }
   -> Class['integrity::server::install']
   -> Class['integrity::server::config']
-  ~> Class['integrity::server::service']
+  -> Class['integrity::server::service']
   -> anchor { 'integrity::server::end': }
 
 }

@@ -7,6 +7,8 @@ class integrity::server::service inherits integrity::params {
     ensure     => $ensure,
     enable     => $enable,
     hasrestart => true,
+    hasstatus  => false,
+    pattern    => '-Dwrapper.native_library=mksservice'
   }
 
 }

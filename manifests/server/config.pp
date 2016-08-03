@@ -1,11 +1,5 @@
 class integrity::server::config inherits integrity::params {
 
-#  if $::integrity_version == 'unknown' {
-#    $integrity_version = $integrity::server::_version
-#  }
-
-#  $properties = hiera_hash(integrity::server::properties, {})
-
   $properties = $integrity::server::properties
 
   create_resources('integrity::property::file', parseyaml(inline_template(
